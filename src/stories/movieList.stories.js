@@ -11,7 +11,7 @@ export default {
   title: "Home Page/MovieList",
   component: MovieList,
   decorators: [
-    (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
+    (Story) => <MemoryRouter initialEntries={["/movies/home"]}>{Story()}</MemoryRouter>,
     (Story) => <MoviesContextProvider>{Story()}</MoviesContextProvider>,
   ],
 };

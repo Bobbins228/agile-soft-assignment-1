@@ -18,7 +18,7 @@ export default {
   title: "Home Page/FilterMoviesCard",
   component: FilterMoviesCard,
   decorators: [
-    (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
+    (Story) => <MemoryRouter initialEntries={["/movies/home"]}>{Story()}</MemoryRouter>,
     (Story) => (
       <QueryClientProvider client={queryClient}>{Story()}</QueryClientProvider>
     ),
