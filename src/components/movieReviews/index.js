@@ -9,9 +9,11 @@ import Paper from "@mui/material/Paper";
 import { Link } from "react-router-dom";
 import { getMovieReviews } from "../../api/tmdb-api";
 import { excerpt } from "../../util";
-
+import { useIsFetching } from "react-query";
+import Spinner from '../spinner'
 export default function MovieReviews({ movie }) {
   const [reviews, setReviews] = useState([]);
+  const isFetching = useIsFetching();
 
   useEffect(() => {
     getMovieReviews(movie.id).then((reviews) => {
@@ -19,6 +21,10 @@ export default function MovieReviews({ movie }) {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  if (isFetching) {
+    return <Spinner />;
+  }
 
   return (
     <TableContainer component={Paper}>
