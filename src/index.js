@@ -53,7 +53,7 @@ const App = () => {
       <Route exact path="/register" element={<RegisterPage />} />
       <Route exact path="/reset" element={<ResetPage />} />
       <Route path="/login" element={<LoginPage />} />
-      <Route path="*" element={ <Navigate to="/" /> } />
+      <Route path="*" element={ <Navigate to="/login" /> } />
     </Routes>
     </MoviesContextProvider>
   </BrowserRouter>
