@@ -7,4 +7,8 @@ export const filterByTitle = (movieList, string) =>
 
 export const filterByGenre = (movieList, genreId) =>
   movieList.filter((m) => m.genre_ids.includes(genreId));
-
+//Generates a random email using Math.random()
+export const randomEmail = () => {
+  var emailBody = Math.floor(Math.random() * 150000000);
+  return `${emailBody}@gmail.com`
+}
