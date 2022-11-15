@@ -1,15 +1,6 @@
 describe("Logged out user tests ", () => {
   
     describe("Favourites authentication", () => { 
-      it("Should navigate to the log in page if a user who is not logged in favourites a movie", () => {
-            cy.visit("/movies/home");
-            cy.wait(300)
-            cy.get("button[aria-label='add to favorites']").eq(1).click();
-            cy.log('Clicked the add to favourites button which should send the user to the log in page');
-            cy.url().should("include", "/login")
-        });
-    })
-    
     describe("The site header", () => {
         beforeEach(() => {
             cy.visit("/movies/home");
@@ -47,4 +38,5 @@ describe("Logged out user tests ", () => {
         }
       );
     });
+});
 });
