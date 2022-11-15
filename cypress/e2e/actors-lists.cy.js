@@ -30,9 +30,7 @@ describe("Actors lists tests", () =>{
         beforeEach(()=>{
             //Get list of a popular actor's credited movies
             cy.request(
-                `https://api.themoviedb.org/3/person/${
-                  actors[0].id
-                }/movie_credits?api_key=${Cypress.env("TMDB_KEY")}`
+                `https://api.themoviedb.org/3/person/976/movie_credits?api_key=${Cypress.env("TMDB_KEY")}`
               )
                 .its("body")
                 .then((actorMovies) => {
@@ -40,9 +38,7 @@ describe("Actors lists tests", () =>{
                 });
             //Get popular actor details
             cy.request(
-                `https://api.themoviedb.org/3/person/${
-                    actors[0].id
-                }?api_key=${Cypress.env("TMDB_KEY")}`
+                `https://api.themoviedb.org/3/person/976?api_key=${Cypress.env("TMDB_KEY")}`
                 )
                 .its("body")
                 .then((response) => {
@@ -62,8 +58,9 @@ describe("Actors lists tests", () =>{
           });
         describe("Popular Actor Details", () =>{
             beforeEach(()=>{
-                cy.visit(`/people/${actors[0].id}`);
+                cy.visit(`/people/976`);//Visit Jason Statham's actor page
             });
+            
             it("Should display the movies that the actor has been in", () =>{
                 cy.get(".MuiCardHeader-content").each(($card, index) => {
                     cy.wrap($card).find("p").contains(creditedMovies[index].title);
@@ -78,9 +75,7 @@ describe("Actors lists tests", () =>{
         beforeEach(()=>{
             //Requests list of trending actors
             cy.request(
-                `https://api.themoviedb.org/3/person/${
-                  trendingActors[1].id
-                }/movie_credits?api_key=${Cypress.env("TMDB_KEY")}`
+                `https://api.themoviedb.org/3/person/500/movie_credits?api_key=${Cypress.env("TMDB_KEY")}`
               )
                 .its("body")
                 .then((actorMovies) => {
@@ -101,10 +96,10 @@ describe("Actors lists tests", () =>{
           })
           describe("Trending Actor Details", () =>{
             beforeEach(()=>{
-                cy.visit(`/people/${trendingActors[1].id}`);
+                cy.visit(`/people/500`);
             });
             it("Should display the movies that the actor has been in", () =>{
-                cy.visit(`/people/${trendingActors[1].id}`);
+                cy.visit(`/people/500`);
                 cy.get(".MuiCardHeader-content").each(($card, index) => {
                     cy.wrap($card).find("p").contains(creditedMovies[index].title);
                   });
