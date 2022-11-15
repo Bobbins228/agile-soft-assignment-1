@@ -23,3 +23,20 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+//Login command
+Cypress.Commands.add('login', (email, password) => { 
+    cy.visit("/login");
+            cy.log("Enter Login information");
+            cy.get(".login__textBox[type='email']").type(email);
+            cy.get(".login__textBox[type='password']").type(password);
+            cy.get(".login__btn").eq(0).click();
+            cy.url().should("include", `/movies/home`);
+ });
+
+//Log out command
+Cypress.Commands.add('logOut', () => {
+    cy.log("Find the Log Out button and click it")
+    cy.get("button").contains("Log").click();
+    cy.url().should("include", `/login`);
+});

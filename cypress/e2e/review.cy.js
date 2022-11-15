@@ -48,13 +48,9 @@ describe("Get Reviews", () => {
   describe("Create Review", () => {
     it("Should log in and display the home page", () => {
         cy.log("Log in first so the user can create a review")
-        cy.visit("/login");
         //test logs in first in order to be able to add a movie to favourites and create a review
-        cy.get("h2").contains("Login");
-        cy.get(".login__textBox[type='email']").type(`${Cypress.env("EMAIL")}`);
-        cy.get(".login__textBox[type='password']").type(`${Cypress.env("PASSWORD")}`);
-        cy.get(".login__btn").eq(0).click();
-        cy.url().should("include", "movies/home")
+        //Use login command to log in using the EMAIL and PASSWORD cypress environment variables
+        cy.login(`${Cypress.env("EMAIL")}`, `${Cypress.env("PASSWORD")}`)
         //From the home page a movie is added to the favourites page
         cy.log("Add a movie to the favourites list and navigate to the favorites page")
         cy.get("button[aria-label='add to favorites']").eq(1).click();
@@ -78,8 +74,7 @@ describe("Get Reviews", () => {
     });
 
     it("Should navigate back to the login page when the Log out button is clicked", () => {
-        cy.get("button").contains("Log").click();
-        cy.url().should("include", `/login`);
+        cy.logOut();
     });
     
 });

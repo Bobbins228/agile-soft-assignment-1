@@ -3,16 +3,11 @@ describe("User funcitonality", () => {
     
     describe("Login Page", () => {
         it("Should log in and display the home page", () => {
-            cy.visit("/login");
-            cy.get("h2").contains("Login");
-            cy.get(".login__textBox[type='email']").type(`${Cypress.env("EMAIL")}`);
-            cy.get(".login__textBox[type='password']").type(`${Cypress.env("PASSWORD")}`);
-            cy.get(".login__btn").eq(0).click();
-            cy.url().should("include", "movies/home")
+            //Use login command to log in using the EMAIL and PASSWORD cypress environment variables
+            cy.login(`${Cypress.env("EMAIL")}`, `${Cypress.env("PASSWORD")}`)
         });
         it("Should navigate back to the login page when the Log out button is clicked", () => {
-            cy.get("button").contains("Log").click();
-            cy.url().should("include", `/login`);
+            cy.logOut();
         });
     });
     
@@ -30,12 +25,8 @@ describe("User funcitonality", () => {
                 });
         })
         it("Should log in, favourite a movie and then view them in the favourites list", () => {
-            cy.visit("/login");
-            cy.log("Enter Login information");
-            cy.get(".login__textBox[type='email']").type(`${Cypress.env("EMAIL")}`);
-            cy.get(".login__textBox[type='password']").type(`${Cypress.env("PASSWORD")}`);
-            cy.get(".login__btn").eq(0).click();
-            cy.url().should("include", `/movies/home`);
+            //Use login command to log in using the EMAIL and PASSWORD cypress environment variables
+            cy.login(`${Cypress.env("EMAIL")}`, `${Cypress.env("PASSWORD")}`)
             cy.log("Add two movies to the favourites list");
             cy.get("button[aria-label='add to favorites']").eq(0).click();
             cy.get(".MuiCardHeader-root").eq(0).find("svg");
@@ -54,9 +45,7 @@ describe("User funcitonality", () => {
                 .contains(movies[1].title);  
         });
         it("Should navigate back to the login page when the Log out button is clicked", () => {
-            cy.log("Find the Log Out button and click it")
-            cy.get("button").contains("Log").click();
-            cy.url().should("include", `/login`);
+            cy.logOut();
         });
     })
 })
