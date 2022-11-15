@@ -35,11 +35,12 @@ describe("Get Reviews", () => {
             });
         
       });
-    it("Display the reviews for a movie", () => {
+    it("Display the full review for a movie", () => {
         cy.visit(`/movies/${movies[0].id}`)
         cy.log("Clicking the reviews button shows off the reviews in the drawer")
         cy.get(".MuiFab-root").contains("Reviews").click()
-        cy.get(".MuiTableCell-root").get("th").eq(3).contains(`${reviews[0].author_details.name}`)
+        cy.get(".MuiTableCell-body").contains("Full Review").click()
+        cy.url().should("include", "/reviews/")
         
     });
 
