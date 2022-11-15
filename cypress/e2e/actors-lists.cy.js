@@ -62,9 +62,7 @@ describe("Actors lists tests", () =>{
             });
             
             it("Should display the movies that the actor has been in", () =>{
-                cy.get(".MuiCardHeader-content").each(($card, index) => {
-                    cy.wrap($card).find("p").contains(creditedMovies[index].title);
-                  });
+                cy.getCards(creditedMovies);
             });
             it("Should display the actor's biograpy", () =>{
                 cy.get(".css-2ulfj5-MuiTypography-root").contains(popularActor.biography)
@@ -100,9 +98,7 @@ describe("Actors lists tests", () =>{
             });
             it("Should display the movies that the actor has been in", () =>{
                 cy.visit(`/people/500`);
-                cy.get(".MuiCardHeader-content").each(($card, index) => {
-                    cy.wrap($card).find("p").contains(creditedMovies[index].title);
-                  });
+                cy.getCards(creditedMovies);
             });
         })
 });

@@ -27,9 +27,8 @@ describe("Get cast", () => {
     });
 
     it("displays the correct movie titles", () => {
-      cy.get(".MuiCardHeader-content").each(($card, index) => {
-        cy.wrap($card).find("p").contains(movies[index].title);
-      });
+      //Use get Cards command while passing the correct movies list to test if the correct movies are displayed
+      cy.getCards(movies);
     });
   });
   describe("The movie details page",

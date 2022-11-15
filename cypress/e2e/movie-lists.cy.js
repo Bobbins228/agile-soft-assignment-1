@@ -70,9 +70,8 @@ describe("get movies lists", () => {
           });
       
           it("displays the correct movie titles", () => {
-            cy.get(".MuiCardHeader-content").each(($card, index) => {
-              cy.wrap($card).find("p").contains(upcomingMovies[index].title);
-            });
+            //Use get Cards command while passing the correct movies list to test if the correct movies are displayed
+            cy.getCards(upcomingMovies)
           });
     });
     describe("Now Playing Movies list", () => {
@@ -85,9 +84,8 @@ describe("get movies lists", () => {
           });
       
           it("displays the correct movie titles", () => {
-            cy.get(".MuiCardHeader-content").each(($card, index) => {
-              cy.wrap($card).find("p").contains(nowPlayingMovies[index].title);
-            });
+            //Use get Cards command while passing the correct movies list to test if the correct movies are displayed
+            cy.getCards(nowPlayingMovies);
           });
     });
     describe("Top Rated Movies list", () => {
@@ -100,9 +98,8 @@ describe("get movies lists", () => {
           });
       
           it("displays the correct movie titles", () => {
-            cy.get(".MuiCardHeader-content").each(($card, index) => {
-              cy.wrap($card).find("p").contains(topRatedMovies[index].title);
-            });
+            //Use get Cards command while passing the correct movies list to test if the correct movies are displayed
+            cy.getCards(topRatedMovies)
           });
     });
     describe("Trending Movies list", () => {
@@ -115,9 +112,8 @@ describe("get movies lists", () => {
           });
       
           it("displays the correct movie titles", () => {
-            cy.get(".MuiCardHeader-content").each(($card, index) => {
-              cy.wrap($card).find("p").contains(trendingMovies[index].title);
-            });
+            //Use get Cards command while passing the correct movies list to test if the correct movies are displayed
+            cy.getCards(trendingMovies)
           });
     });
    

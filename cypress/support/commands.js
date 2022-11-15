@@ -40,3 +40,10 @@ Cypress.Commands.add('logOut', () => {
     cy.get("button").contains("Log").click();
     cy.url().should("include", `/login`);
 });
+
+//Check movie cards command
+Cypress.Commands.add('getCards', (list) => {
+    cy.get(".MuiCardHeader-content").each(($card, index) => {
+        cy.wrap($card).find("p").contains(list[index].title);
+    });
+});
