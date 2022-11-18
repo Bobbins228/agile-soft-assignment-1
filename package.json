@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start:ci": "start-server-and-test 'http-server ./build  -p 3000 -P http://localhost:3000?' 3000 'cypress run --browser chrome '",
+    "start:ci": "cypress run --browser chrome ",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

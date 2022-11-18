@@ -32,14 +32,12 @@ install_dependencies:
 bundle_app:
   stage: build
   script:
-    - CI=false npm run build
+    - serve -s build
   artifacts:
     paths:
       - build/
 
 e2etest:
-# Node docker image with Cypress and Chrome pre-installed
-  image: cypress/browsers:node12.14.1-chrome85-ff81
   stage: test
   only:
     - main
