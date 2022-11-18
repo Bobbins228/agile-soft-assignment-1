@@ -122,9 +122,7 @@ describe("get movies lists", () => {
         
         // Get Movie details from a movie from the discover movies list
         cy.request(
-            `https://api.themoviedb.org/3/movie/${
-              movies[1].id
-            }?api_key=${Cypress.env("TMDB_KEY")}`
+            `https://api.themoviedb.org/3/movie/436270?api_key=${Cypress.env("TMDB_KEY")}`
           )
             .its("body")
             .then((movieDetails) => {
@@ -132,7 +130,7 @@ describe("get movies lists", () => {
             });
         // Get similar movies from TMDB using the movie id and store them locally.
         cy.request(
-            `https://api.themoviedb.org/3/movie/${movies[1].id}/similar?api_key=${Cypress.env("TMDB_KEY")}&language=en-US&page=1`
+            `https://api.themoviedb.org/3/movie/436270/similar?api_key=${Cypress.env("TMDB_KEY")}&language=en-US&page=1`
         )
             .its("body") // Take the body of HTTP response from TMDB
             .then((response) => {
@@ -140,7 +138,7 @@ describe("get movies lists", () => {
             });
         // Get recommended movies from TMDB using the movie id and store them locally.
         cy.request(
-            `https://api.themoviedb.org/3/movie/${movies[1].id}/recommendations?api_key=${Cypress.env("TMDB_KEY")}&language=en-US&page=1`
+            `https://api.themoviedb.org/3/movie/436270/recommendations?api_key=${Cypress.env("TMDB_KEY")}&language=en-US&page=1`
         )
             .its("body") // Take the body of HTTP response from TMDB
             .then((response) => {
@@ -148,7 +146,7 @@ describe("get movies lists", () => {
             });
 
             
-        cy.visit(`/movies/${movies[1].id}`);
+        cy.visit(`/movies/436270`);
         });
         describe("Similar movies list", () => {
             it("displays the page header and 20 movies", () => {
