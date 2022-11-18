@@ -16,11 +16,11 @@ describe("Get cast", () => {
         movies = response.results;
       });
   });
-  beforeEach(() => {
-    cy.visit("/movies/home");
-  });
-
+  
   describe("The Discover Movies page", () => {
+    beforeEach(() => {
+      cy.visit("/movies/home");
+    });  
     it("displays the page header and 20 movies", () => {
       cy.get("h3").contains("Discover Movies");
       cy.get(".MuiCardHeader-root").should("have.length", 20);
@@ -37,26 +37,24 @@ describe("Get cast", () => {
       viewportWidth: 1920,
     }, () => {
     before(() => {
-        // Get the movie from the discover movies page.
+        // Get Black Adam.
       cy.request(
-        `https://api.themoviedb.org/3/movie/${
-          movies[1].id
-        }?api_key=${Cypress.env("TMDB_KEY")}`
+        `https://api.themoviedb.org/3/movie/436270?api_key=${Cypress.env("TMDB_KEY")}`
       )
         .its("body")
         .then((movieDetails) => {
           movie = movieDetails;
         });
-        //Get the cast list from a movie from the discover page
+        //Get the cast list from Black Adam
       cy.request(
-        `https://api.themoviedb.org/3/movie/${movies[1].id}/credits?api_key=${Cypress.env("TMDB_KEY")}`
+        `https://api.themoviedb.org/3/movie/436270/credits?api_key=${Cypress.env("TMDB_KEY")}`
       ).its("body")
       .then((response) => {
         cast = response.cast;
       });
     });
     it(" displays the movie title, and correct cast list ", () => {
-      cy.visit(`/movies/${movies[1].id}`);
+      cy.visit(`/movies/436270`);
       cy.get("h3").contains(movie.title);
       cy.log("Get the name of every cast member and compare them to the gathered list")
       cy.get("h3").eq(2).contains("Cast").then((c) => {
