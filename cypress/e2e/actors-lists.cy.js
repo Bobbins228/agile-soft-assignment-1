@@ -65,7 +65,7 @@ describe("Actors lists tests", () =>{
                 cy.getCards(creditedMovies);
             });
             it("Should display the actor's biograpy", () =>{
-                cy.get(".css-2ulfj5-MuiTypography-root").contains(popularActor.biography)
+                cy.get(".css-1anx036").contains(popularActor.biography)
             });
         })
     });
