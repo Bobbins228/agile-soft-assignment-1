@@ -5,9 +5,10 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { createRoot } from 'react-dom/client';
 import MoviesContextProvider from "./contexts/moviesContext";
+import PersonDetailsPage from "./pages/personDetailsPage";
+import MoviePage from "./pages/movieDetailsPage";
 
 const AddMovieReviewPage = lazy(() => import('./pages/addMovieReviewPage'));
-const PersonDetailsPage = lazy(() => import('./pages/personDetailsPage'));
 const TrendingPeoplePage = lazy(() => import('./pages/trendingPeoplePage'));
 const PopularPeoplePage = lazy(() => import('./pages/popularPeoplePage'));
 const NowPlayingPageMoviesPage = lazy(() => import("./pages/nowPlayingMoviesPage"));
@@ -19,7 +20,6 @@ const TopRatedMoviesPage = lazy(() => import("./pages/topRatedMoviesPage"));
 const ResetPage = lazy(() => import("./pages/resetPage"));
 const RegisterPage = lazy(() => import("./pages/registerPage"));
 const LoginPage = lazy(() => import("./pages/loginPage"));
-const MoviePage = lazy(() => import("./pages/movieDetailsPage"));
 const HomePage = lazy(() => import("./pages/homePage"))
 const queryClient = new QueryClient({
   defaultOptions: {
