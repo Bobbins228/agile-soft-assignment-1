@@ -25,6 +25,7 @@ install_dependencies:
   stage: install
   script:
     - npm ci --cache .npm --prefer-offline
+    - npm install -g serve
   artifacts:
     paths:
       - node_modules/
@@ -44,5 +45,8 @@ e2etest:
   only:
     - main
   script:
+#Runs serve to deploy build
     - echo "Run tests in headless mode"
+    - serve -s build &
     - npm run start:ci
+    - kill %1
