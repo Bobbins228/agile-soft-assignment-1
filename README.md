@@ -15,7 +15,9 @@ There are 8 total Cypress end to end testing files.
 The tests feature custom commands for login and logout as well as checking movie card titles.
 
 # CI
-The pipeline runs install and build jobs on the develop branch and install, build and test jobs on the main branch.<br> Auto deployment has been configured on the main branch for running the Cypress tests using `serve`
+The pipeline runs install and build jobs on the develop branch and install, build and test jobs on the main branch.<br>
+# Automatic Deployment
+I made an attempt at utilising automatic deployment but my tests failed whenever I tried. See [commit 6d50742a](https://gitlab.com/Bobbins228/agile-assignment-1/-/commit/6d50742afa8ddcb8c41af641c6d56ef351a2bcd5)
 # Local set up.
 ## TMDB API
 In order to run the web app you must first create a .env file in the project base folder.
