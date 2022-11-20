@@ -33,8 +33,7 @@ install_dependencies:
 bundle_app:
   stage: build
   script:
-    - npm install -g serve
-    - serve -s build
+    - CI=false npm run build
   artifacts:
     paths:
       - build/
