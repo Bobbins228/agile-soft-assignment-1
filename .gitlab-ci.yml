@@ -46,7 +46,4 @@ e2etest:
   script:
 #Runs serve to deploy build
     - echo "Run tests in headless mode"
-    - npm install -g serve
-    - serve -s build &
     - npm run start:ci
-    - kill %1
