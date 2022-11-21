@@ -1,23 +1,45 @@
-# Assignment 1 - Agile software practice.
+# Assignment 1 - Agile Software Practice.
 
-Name: Mark Campbell
+__Name:__ Mark Campbell
 
-# Cypress E2E tests
-There are 8 total Cypress end to end testing files.
-* actors-lists.cy.js - Tests that run in order to make sure that all of the actors are listed on their correct pages.
-* cast-list-from-movie-details.cy.js - Tests that the correct cast list is displayed on a movie details page.
-* filtering.cy.js - Tests the filtering functionality for movies and actors.
-* logged-out.cy.js - Tests how a logged out user interacts with the website.
-* login.cy.js - Tests the login functionality of the web app.
-* movie-lists.cy.js - Tests that all movie list pages display the correct movies.
-* register.cy.js - Tests the registration functionality of the web app.
-* review.cy.js - Tests the review functionality of the web app.<br>
-The tests feature custom commands for login and logout as well as checking movie card titles.
+This repository contains the implementation of a React App and its associated Cypress tests and GitLab CI pipeline.
 
-# CI
-The pipeline runs install and build jobs on the develop branch and install, build and test jobs on the main branch.<br>
-# Automatic Deployment
+## React App Features.
+ 
++ Authentication
++ Review creation and viewing.
++ Trending and popular actors pages.
++ Actor's details page featuring movies they have a role in.
++ Now playing, top rated, trending, upcoming movies pages.
++ Cast list, recommended and similar movies lists viewable from a movies detail page
++ search actors filteering option.
+
+## Automated Tests.
+
+### Best test cases.
+
++ cypress/e2e/login.cy.js
++ cypress/e2e/review.cy.js
+
+### Cypress Custom commands (if relevant).
+
++ cypress/e2e/login.cy.js
++ cypress/e2e/review.cy.js
++ cypress/e2e/cast-list-from-movie-details.cy.js
++ cypress/e2e/movie-lists.cy.js
+
+## Code Splitting.
+
++ src/index.js
+
+## Pull Requests.
+
+[Github](https://github.com/Bobbins228/agile-soft-assignment-1)
+
+## Independent learning (If relevant).
+
 I made an attempt at utilising automatic deployment but my tests failed whenever I tried. See [commit 6d50742a](https://gitlab.com/Bobbins228/agile-assignment-1/-/commit/6d50742afa8ddcb8c41af641c6d56ef351a2bcd5)
+
 # Local set up.
 ## TMDB API
 In order to run the web app you must first create a .env file in the project base folder.
@@ -29,7 +51,7 @@ FAST_REFRESH=false
 <br>
 
 ## Cypress environment variables
-You must first creat an account on the web app and store the information.<br>
+You must first create an account on the web app and store the information.<br>
 You must then create a file called cypress.env.json in the project base folder and fill it with the following<br>
 ```
 {
