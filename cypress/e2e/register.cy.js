@@ -1,5 +1,5 @@
 import {randomEmail} from '../support/e2e'
-describe("User funcitonality", () => {
+describe("User functionality", () => {
     
     describe("Login Page", () => {
         it("should register a new user and display the home page", () => {

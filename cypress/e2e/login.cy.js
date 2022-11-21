@@ -1,5 +1,5 @@
 let movies;
-describe("User funcitonality", () => {
+describe("User functionality", () => {
     
     describe("Login Page", () => {
         it("Should log in and display the home page", () => {
