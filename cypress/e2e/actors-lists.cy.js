@@ -62,7 +62,7 @@ describe("Actors lists tests", () =>{
             });
             
             it("Should display the movies that the actor has been in", () =>{
-                cy.getCards(creditedMovies);
+                cy.getCards(creditedMovies); //Nice use of custom command!
             });
             it("Should display the actor's biograpy", () =>{
                 cy.get(".css-1anx036").contains(popularActor.biography)
